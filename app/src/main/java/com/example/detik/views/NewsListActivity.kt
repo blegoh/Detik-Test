@@ -56,9 +56,15 @@ class NewsListActivity : AppCompatActivity() {
         recyclerView.adapter = newsAdapter
 
         swipeRefresh.setOnRefreshListener {
-            viewModel.updateNews()
             viewModel.updateBookmarks()
+            viewModel.updateNews()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.updateBookmarks()
+        viewModel.updateNews()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
