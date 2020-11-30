@@ -65,7 +65,7 @@
             tools:text="Was Rusian plane bombed?"
             android:textColor="@color/white"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/toggle"
+            app:layout_constraintEnd_toStartOf="@+id/detail"
             app:layout_constraintStart_toEndOf="@+id/verticalLine"
             app:layout_constraintTop_toBottomOf="@+id/publishedNews" />
 
@@ -92,7 +92,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -103,7 +103,7 @@
             app:layout_constraintTop_toBottomOf="@+id/newsTitle" />
 
         <ImageView
-            android:id="@+id/toggle"
+            android:id="@+id/detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"

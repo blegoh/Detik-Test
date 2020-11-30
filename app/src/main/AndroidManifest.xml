@@ -25,7 +25,7 @@
             android:label="@string/title_activity_news_detail"
             android:theme="@style/Theme.Detik.NoActionBar" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".views.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

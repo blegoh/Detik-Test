@@ -73,41 +73,22 @@ class NewsAdapter(
                 .placeholder(R.drawable.placeholder_list_image)
                 .error(R.drawable.placeholder_list_image)
                 .into(imageView)
-            toggle.setOnClickListener {
-                val icon: Int
-                if (isShowed) {
-                    bookmarkStatus.visibility = View.GONE
-                    verticalLine.visibility = View.GONE
-                    icon = R.drawable.ic_baseline_arrow_forward_ios_24
-                    isShowed = !isShowed
-                } else {
-                    icon = R.drawable.ic_baseline_arrow_back_ios_24
-                    bookmarkStatus.visibility = View.VISIBLE
-                    verticalLine.visibility = View.VISIBLE
-                    isShowed = !isShowed
-                }
-                updateToggleIcon(icon)
+            detail.setOnClickListener {
+                goToDetail(news)
             }
             bookmarkStatus.setOnClickListener {
                 updateIcon(!isBookmarked)
                 bookmarkListener.onToggleBookmark(news)
             }
-            div.setOnTouchListener(touchListener)
             div.setOnClickListener { goToDetail(news) }
+//            div.setOnTouchListener(touchListener)
+//            newsTitle.setOnClickListener { goToDetail(news) }
             newsTitle.setOnTouchListener(touchListener)
-            newsTitle.setOnClickListener { goToDetail(news) }
+            publishedNews.setOnTouchListener(touchListener)
+            subtitle.setOnTouchListener(touchListener)
             containerView.setOnClickListener {
                 goToDetail(news)
             }
-        }
-
-        private fun updateToggleIcon(icon: Int) {
-            toggle.setImageDrawable(
-                containerView.context.resources.getDrawable(
-                    icon,
-                    containerView.context.theme
-                )
-            )
         }
 
         private fun goToDetail(news: News) {
@@ -136,15 +117,11 @@ class NewsAdapter(
             override fun onSwipeRight() {
                 bookmarkStatus.visibility = View.VISIBLE
                 verticalLine.visibility = View.VISIBLE
-                val icon = R.drawable.ic_baseline_arrow_back_ios_24
-                updateToggleIcon(icon)
             }
 
             override fun onSwipeLeft() {
                 bookmarkStatus.visibility = View.GONE
                 verticalLine.visibility = View.GONE
-                val icon = R.drawable.ic_baseline_arrow_forward_ios_24
-                updateToggleIcon(icon)
             }
         }
     }
